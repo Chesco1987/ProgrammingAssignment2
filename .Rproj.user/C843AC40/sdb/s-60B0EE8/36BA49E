@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "\n## This function:\n##set the value of the matrix \n##get the value of the matrix\n##set the value of the inverse matrix\n##get the value of the inverse matrix\n\nmakeCacheMatrix <- function(x = matrix()) {\n        m<-NULL\n        set<-function(y){\n                x<<-y\n                m<<-NULL\n        }\n        get<-function() x\n        setmatrix<-function(solve) m<<- solve\n        getmatrix<-function() m\n        list(set=set, get=get,\n             setmatrix=setmatrix,\n             getmatrix=getmatrix)\n}\n\n\n\n## The following function calculates the mean of the special \"matrix\"\n##created with the above function. However, it first checks to see if the\n## inverse of the matrix has already been calculated. If so, it `get`s the inverse\n##from the cache and skips the computation. Otherwise, it calculates the inverse of\n##the matrix and sets the value of the inverse in the cache via the `setmatrix(m)`\n##function.\n\ncacheSolve <- function(x=matrix(), ...) {\n        m<-x$getmatrix()\n        if(!is.null(m)){\n                message(\"getting cached data\")\n                return(m)\n        }\n        matrix<-x$get()\n        m<-solve(matrix, ...)\n        x$setmatrix(m)\n        m\n}\n",
+    "created" : 1457838828232.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1190681383",
+    "id" : "36BA49E",
+    "lastKnownWriteTime" : 1457839340,
+    "last_content_update" : 1457839340384,
+    "path" : "~/Desktop/R-programming/ProgrammingAssignment2/cachematrix.R",
+    "project_path" : "cachematrix.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
